@@ -6,6 +6,7 @@
 <title>Umesh T — Web Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root{
     --bg: #0E1416;
@@ -21,7 +22,12 @@
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--bg);
+    background:
+      radial-gradient(ellipse 900px 600px at 85% -10%, rgba(63,184,175,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at -10% 30%, rgba(232,163,61,0.08), transparent 55%),
+      radial-gradient(ellipse 1000px 700px at 50% 110%, rgba(63,184,175,0.07), transparent 60%),
+      linear-gradient(180deg, #0B1012 0%, #0E1416 35%, #0C1517 100%);
+    background-attachment:fixed;
     color:var(--text);
     font-family:'Inter',sans-serif;
     line-height:1.6;
@@ -118,15 +124,28 @@
   .hero-meta{display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
   .hero-meta a:hover{color:var(--teal);}
 
-  .avatar-wrap{
+  .hero-avatar-wrap{
     position:relative;z-index:2;
-    width:96px;height:96px;border-radius:50%;
-    background:linear-gradient(155deg,var(--panel),var(--bg-soft));
-    border:1px solid var(--teal);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;
-    color:var(--teal);
+    width:104px;height:104px;
     margin-bottom:24px;
+  }
+  .avatar-ring{
+    position:absolute;inset:-8px;
+    border-radius:50%;
+    border:1.5px dashed rgba(63,184,175,0.55);
+    animation:ring-spin 14s linear infinite;
+  }
+  .avatar-ring::after{
+    content:"";position:absolute;inset:-5px;border-radius:50%;
+    border:1px solid rgba(232,163,61,0.25);
+  }
+  @keyframes ring-spin{to{transform:rotate(360deg);}}
+  .hero-avatar{
+    width:104px;height:104px;border-radius:50%;
+    object-fit:cover;
+    border:1px solid var(--teal);
+    background:linear-gradient(155deg,var(--panel),var(--bg-soft));
+    display:block;
   }
 
   /* SECTION shared */
@@ -237,13 +256,19 @@
     <div class="blip b3"></div>
   </div>
   <div class="wrap hero-content">
-    <div class="avatar-wrap">UT</div>
+    <div class="hero-avatar-wrap">
+      <div class="avatar-ring"></div>
+      <img src="profile.jpg" class="hero-avatar" alt="Umesh T">
+    </div>
     <div class="eyebrow mono">AVAILABLE FOR OPPORTUNITIES</div>
     <h1 class="name">Umesh T</h1>
     <p class="role">Web Developer building <strong>responsive, REST-integrated applications</strong> with Django and JavaScript — currently a Graduate Apprentice at <strong>Bharat Electronics Limited</strong>, Bengaluru.</p>
     <div class="hero-actions">
       <a class="btn btn-solid" href="#projects">View Projects →</a>
       <a class="btn btn-line" href="#contact">Get in Touch</a>
+      <a class="btn btn-line" href="Umesh_T_Data_Analyst_Resume_Updated.pdf" download>
+        <i class="fas fa-file-pdf"></i> Resume
+      </a>
     </div>
     <div class="hero-meta">
       <a href="mailto:umeshtumesh1412@gmail.com">umeshtumesh1412@gmail.com</a>
@@ -405,6 +430,9 @@
         <a class="btn btn-solid" href="mailto:umeshtumesh1412@gmail.com">Email Me</a>
         <a class="btn btn-line" href="https://linkedin.com/in/umesh-t-56b25330a" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-line" href="https://github.com/Umeshtumegithub" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-line" href="Umesh_T_Data_Analyst_Resume_Updated.pdf" download>
+          <i class="fas fa-file-pdf"></i> Resume
+        </a>
       </div>
     </div>
   </div>
@@ -415,4 +443,5 @@
 </footer>
 
 </body>
-</html>
+            </html>
+  
